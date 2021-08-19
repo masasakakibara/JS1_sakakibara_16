@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+        <link rel="stylesheet" href="janken.css">
+</head>
+<body>
+ 
+
+<header>
+    <h1 class="main__title">じゃんけんゲーム</h1>
+</header>
+
+<main>
+    <button id="janken" class="btn">じゃんけんをする<br>（ここをクリック）</button>
+
+    <p id="echo"></p>
+</main> 
+
+<!-- htmlに直接scriptを書いているのが jsフォルダとファイルを
+作ってやるやり方とは異なる。これはalertに表示される -->
+<!-- jQueryをgoogleからリンク取っていかに張り付けないと動かないので、毎回
+貼り付けが必要。また毎回引っ張ってくるのでWifiやネットに接続していないと動かない -->
+
+<script>
+$("#janken").on("click",function(){
+//   1. 1から3の乱数を発生させる
+const r = Math.ceil(Math.random()*3);
+
+// ２．if分岐処理
+let view = "";
+
+if(r==1){
+    view='<img src="img/choki.jpg">';
+}
+if(r==2){
+    view='<img src="img/gu.jpg">';
+}
+if(r==3){
+    view='<img src="img/par.jpg">';
+}
+
+// ３．表示処理
+$("#echo").html(view);
+
+});
+
+</script>
+
+</body>
+</html>
+
